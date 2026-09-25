@@ -60,7 +60,7 @@
     shell = pkgs.nushell;
     isNormalUser = true;
     description = "Kurund Jalmi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -107,6 +107,7 @@
      gcc
      delta
      ripgrep
+     pnpm
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
@@ -114,6 +115,8 @@
      unzip
      php
   ];
+
+  virtualisation.docker.enable = true;
 
   programs.browserpass.enable = true;
   programs.lazygit.enable = true;
