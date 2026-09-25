@@ -57,6 +57,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."kurund" = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "Kurund Jalmi";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -101,10 +102,15 @@
      starship-jj
      gnupg
      gh
+     stow
+     herdr
+     gcc
+     delta
   ];
 
   programs.browserpass.enable = true;
   programs.lazygit.enable = true;
+  programs.fish.enable = true;
 
   # window manager
   programs.niri.enable = true; 
