@@ -57,7 +57,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."kurund" = {
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
     isNormalUser = true;
     description = "Kurund Jalmi";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -111,6 +111,7 @@
   programs.browserpass.enable = true;
   programs.lazygit.enable = true;
   programs.fish.enable = true;
+  programs.nushell.enable = true;
 
   # window manager
   programs.niri.enable = true; 
