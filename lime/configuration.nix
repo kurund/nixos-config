@@ -106,12 +106,22 @@
      herdr
      gcc
      delta
+     ripgrep
+
+     # neovim / mason: runtimes needed to install LSPs, linters and formatters
+     nodejs
+     python3
+     unzip
+     php
   ];
 
   programs.browserpass.enable = true;
   programs.lazygit.enable = true;
   programs.fish.enable = true;
   programs.nushell.enable = true;
+  programs.nix-ld.enable = true;
+  # extra libs for prebuilt mason binaries (marksman needs icu)
+  programs.nix-ld.libraries = with pkgs; [ icu ];
 
   # window manager
   programs.niri.enable = true; 
