@@ -105,6 +105,7 @@
      pnpm
      google-clasp
      mattermost-desktop
+     spotify-player
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
