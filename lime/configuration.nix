@@ -17,6 +17,26 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  # connecting to external display switched audio and it was not working
+  # also switching from speaker to headphones was bit flaky
+  services.pipewire.wireplumber.extraConfig."51-laptop-audio" = {
+    "wireplumber.settings"."node.restore-default-targets" = false;
+    "monitor.alsa.rules" = [{
+      matches = [{ "device.name" = "alsa_card.pci-0000_00_1f.3-platform-skl_hda_dsp_generic"; }];
+      actions.update-props."device.profile" = "HiFi (HDMI1, HDMI2, HDMI3, Mic1, Mic2, Speaker)";
+    }];
+  };
+  systemd.user.services.wireplumber.serviceConfig.ExecStartPost =
+    toString (pkgs.writeShellScript "unmute-headphone-pin" ''
+      # UCM mutes the headphone pin while wireplumber sets up the card
+      for _ in $(seq 20); do
+        ${pkgs.wireplumber}/bin/wpctl status | grep -q "Controller Speaker" && break
+        sleep 0.5
+      done
+      sleep 0.5
+      ${pkgs.alsa-utils}/bin/amixer -q -c sofhdadsp sset Headphone 100% unmute
+    '');
+
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";
