@@ -8,18 +8,18 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
   boot.initrd.luks.devices."luks-10ef9b73-65b2-4661-ba38-547d6b936ed0".device = "/dev/disk/by-uuid/10ef9b73-65b2-4661-ba38-547d6b936ed0";
-  networking.hostName = "lime";
 
+  networking.hostName = "lime";
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
     LC_IDENTIFICATION = "en_GB.UTF-8";
@@ -52,7 +52,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"]; 
 
   environment.systemPackages = with pkgs; [
-     vim 
+     vim
      neovim
      wget
      git
