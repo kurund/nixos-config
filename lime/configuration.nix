@@ -19,11 +19,6 @@
 
   boot.initrd.luks.devices."luks-10ef9b73-65b2-4661-ba38-547d6b936ed0".device = "/dev/disk/by-uuid/10ef9b73-65b2-4661-ba38-547d6b936ed0";
   networking.hostName = "lime"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -108,6 +103,8 @@
      delta
      ripgrep
      pnpm
+     google-clasp
+     mattermost-desktop
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
@@ -119,9 +116,12 @@
   virtualisation.docker.enable = true;
 
   programs.browserpass.enable = true;
+
   programs.lazygit.enable = true;
+
   programs.fish.enable = true;
   programs.nushell.enable = true;
+
   programs.nix-ld.enable = true;
   # extra libs for prebuilt mason binaries (marksman needs icu)
   programs.nix-ld.libraries = with pkgs; [ icu ];
