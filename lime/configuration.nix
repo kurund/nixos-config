@@ -126,6 +126,7 @@
      mattermost-desktop
      spotify-player
      claude-code
+     uv
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
