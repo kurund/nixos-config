@@ -7,6 +7,7 @@
     ];
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.luks.devices."luks-10ef9b73-65b2-4661-ba38-547d6b936ed0".device = "/dev/disk/by-uuid/10ef9b73-65b2-4661-ba38-547d6b936ed0";
@@ -70,6 +71,13 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = ["nix-command" "flakes"]; 
+
+  # weekly cleanup: keep the last 5 builds (plus anything from the last 3 days)
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep 5 --keep-since 3d";
+  };
 
   environment.systemPackages = with pkgs; [
      vim
