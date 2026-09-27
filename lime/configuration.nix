@@ -169,8 +169,10 @@
     };
   };
 
-   # enable automounting of external devices
-   services.udisks2.enable = true;
+  services.upower.enable = true;
+
+  # enable automounting of external devices
+  services.udisks2.enable = true;
 
   system.stateVersion = "26.05";
 
