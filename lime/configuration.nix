@@ -3,7 +3,7 @@
 {
   imports =
     [
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -17,6 +17,11 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  # laptop: power profiles, firmware updates (fwupdmgr), compressed swap in RAM
+  services.power-profiles-daemon.enable = true;
+  services.fwupd.enable = true;
+  zramSwap.enable = true;
 
   # connecting to external display switched audio and it was not working
   # also switching from speaker to headphones was bit flaky
@@ -72,6 +77,9 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"]; 
 
+  # dedupe identical files in the nix store
+  nix.optimise.automatic = true;
+
   # weekly cleanup: keep the last 5 builds (plus anything from the last 3 days)
   programs.nh = {
     enable = true;
@@ -102,7 +110,6 @@
      obsidian
      tmux
      fastfetch
-     docker
      nushell
      fish
      starship
