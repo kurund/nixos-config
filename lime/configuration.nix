@@ -75,7 +75,10 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"]; 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  nix.settings.substituters = [ "https://bknix.cachix.org" ];
+  nix.settings.trusted-public-keys = [ "bknix.cachix.org-1:+Lk3ufMR5Yn0vcd9Offl6xC+aYLNULY60TjQVTzbls4=" ];
 
   # dedupe identical files in the nix store
   nix.optimise.automatic = true;
