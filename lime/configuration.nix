@@ -127,6 +127,9 @@
      spotify-player
      claude-code
      uv
+     cloudflared
+     wl-clipboard
+     php85Packages.composer
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
