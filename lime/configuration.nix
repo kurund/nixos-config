@@ -133,6 +133,7 @@
      cloudflared
      wl-clipboard
      php85Packages.composer
+     carapace
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
