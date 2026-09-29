@@ -178,6 +178,12 @@
   # enable automounting of external devices
   services.udisks2.enable = true;
 
+  # font configuration
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    maple-mono.NF
+  ];
+
   system.stateVersion = "26.05";
 
 }
