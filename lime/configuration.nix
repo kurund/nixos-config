@@ -135,6 +135,7 @@
      php85Packages.composer
      carapace
      wp-cli
+     mariadb.client
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
