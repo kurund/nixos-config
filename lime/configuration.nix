@@ -134,6 +134,7 @@
      wl-clipboard
      php85Packages.composer
      carapace
+     wp-cli
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
