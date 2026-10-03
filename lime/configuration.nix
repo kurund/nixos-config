@@ -136,6 +136,8 @@
      carapace
      wp-cli
      mariadb.client
+     qutebrowser
+     firefox
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
