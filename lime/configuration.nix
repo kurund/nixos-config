@@ -129,6 +129,8 @@
      mattermost-desktop
      spotify-player
      claude-code
+     bubblewrap
+     socat
      uv
      cloudflared
      wl-clipboard
@@ -138,6 +140,7 @@
      mariadb.client
      qutebrowser
      firefox
+     helix
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
