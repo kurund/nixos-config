@@ -141,12 +141,15 @@
      qutebrowser
      firefox
      helix
+     phpactor
+     yarn
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
      python3
      unzip
      php
+     gnumake
   ];
 
   virtualisation.docker.enable = true;
@@ -190,6 +193,9 @@
     jetbrains-mono
     maple-mono.NF
   ];
+
+  # each compose project gets its own br-<hash> bridge, "+" matches all of them
+  networking.firewall.interfaces."br-+".allowedTCPPorts = [ 9003 ];
 
   system.stateVersion = "26.05";
 
