@@ -143,6 +143,9 @@
      helix
      phpactor
      yarn
+     fzf
+     zoxide
+     fd
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
@@ -150,6 +153,7 @@
      unzip
      php
      gnumake
+     tree-sitter
   ];
 
   virtualisation.docker.enable = true;
