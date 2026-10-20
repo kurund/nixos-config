@@ -66,7 +66,7 @@
   console.keyMap = "uk";
 
   users.users."kurund" = {
-    shell = pkgs.nushell;
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Kurund Jalmi";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
@@ -114,7 +114,6 @@
      tmux
      fastfetch
      nushell
-     fish
      starship
      starship-jj
      gnupg
@@ -135,7 +134,6 @@
      cloudflared
      wl-clipboard
      php85Packages.composer
-     carapace
      wp-cli
      mariadb.client
      qutebrowser
@@ -164,8 +162,25 @@
 
   programs.lazygit.enable = true;
 
-  programs.fish.enable = true;
   programs.nushell.enable = true;
+  programs.zsh = {
+    enable = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      dcu = "docker compose up -d --remove-orphans";
+      dcdn = "docker compose down";
+      dcb = "docker compose exec -u civicrm app bash";
+      dcd = "docker compose exec -u civicrm app civicrm-docker-dump";
+      dcl = "docker compose exec -u civicrm app civicrm-docker-load";
+    };
+  };
+  programs.starship.enable = true;
+  programs.zoxide.enable = true;
+  programs.fzf = {
+    keybindings = true;
+    fuzzyCompletion = true;
+  };
 
   programs.nix-ld.enable = true;
   # extra libs for prebuilt mason binaries (marksman needs icu)
