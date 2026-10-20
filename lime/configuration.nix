@@ -149,6 +149,7 @@
      spotatui
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
+     luarocks
      nodejs
      python3
      unzip
