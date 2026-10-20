@@ -146,6 +146,7 @@
      fzf
      zoxide
      fd
+     spotatui
 
      # neovim / mason: runtimes needed to install LSPs, linters and formatters
      nodejs
